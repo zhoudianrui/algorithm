@@ -1,28 +1,34 @@
 package io.frlib.algorithm.base;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class LinkList<E> {
-
-    class Node<E> {
-        E value; // 节点元素
-        Node next; // 下一个节点
-        Node(E e, Node next) {
-            this.value = e;
-            this.next = next;
-        }
-    }
 
     // 头结点
     private Node<E> head;
     private int size; // 节点数
 
+    public Node<E> getHead() {
+        return head;
+    }
+
+    public void setHead(Node<E> head) {
+        this.head = head;
+    }
     public int getSize() {
         return size;
     }
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public Node<E> build(List<E> list) {
+        for(E e: list) {
+            add(e);
+        }
+        return head;
     }
 
     // 增(头插)
@@ -32,6 +38,24 @@ public class LinkList<E> {
             node.next = head;
         }
         head = node;
+        size++;
+    }
+
+    /**
+     * 增(尾插)
+     * @param e
+     */
+    public void addLast(E e) {
+        Node<E> node = new Node(e, null);
+        if (head == null) {
+            head = node;
+        } else {
+            Node<E> p = head;
+            while(p.next != null) {
+                p = p.next;
+            }
+            p.next = node;
+        }
         size++;
     }
 

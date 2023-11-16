@@ -7,22 +7,6 @@ import java.util.*;
  */
 public class BinaryTree<E> {
 
-    class TreeNode<E> {
-        E value;
-        TreeNode<E> left;
-        TreeNode<E> right;
-        TreeNode(E value, TreeNode<E> left, TreeNode<E> right) {
-            this.value = value;
-            this.left = left;
-            this.right = right;
-        }
-
-        @Override
-        public String toString() {
-            return value.toString();
-        }
-    }
-
     TreeNode<E> root; // 根节点
 
     public TreeNode<E> getRoot() {
@@ -106,7 +90,7 @@ public class BinaryTree<E> {
         elements.set(5, null);
         elements.set(7, null);
         BinaryTree<Integer> tree = new BinaryTree<>();
-        BinaryTree<Integer>.TreeNode<Integer> root = tree.buildTree(elements);
+        TreeNode<Integer> root = tree.buildTree(elements);
         tree.traverse(root);
     }
 }
