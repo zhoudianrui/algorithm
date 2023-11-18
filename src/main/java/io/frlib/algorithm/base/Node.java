@@ -4,7 +4,7 @@ package io.frlib.algorithm.base;
  * 链表节点元素
  * @param <E>
  */
-public class Node<E> implements Comparable<E> {
+public class Node<E> implements Comparable<Node<E>> {
     E value; // 节点元素
     Node next; // 下一个节点
 
@@ -29,9 +29,8 @@ public class Node<E> implements Comparable<E> {
         this.next = next;
     }
 
-
-    @Override
-    public int compareTo(E o) {
-        return ((Comparable)value).compareTo(o);
+    public int compareTo(Node<E> o) {
+        return ((Comparable)value).compareTo(o.getValue());
     }
+
 }
