@@ -3,6 +3,10 @@ package io.frlib.algorithm.base;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * 链表常规操作
+ * @param <E>
+ */
 public class LinkList<E> {
 
     // 头结点
